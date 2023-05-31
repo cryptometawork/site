@@ -1,0 +1,53 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.video {
+    background-color: v.$blanco;
+    
+    
+    &__contenedor {
+        background-image: linear-gradient(to bottom, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%),
+        url(../img/imagen_video.png);
+        background-repeat: no-repeat;
+        background-size: 100% cover;
+        background-position: center bottom;
+        margin: 5rem 0;
+    
+            @include m.tablet { 
+                background-image: linear-gradient(to right, v.$primario 0%, v.$primario 50%, transparent 50%, transparent 100%),
+                url(../img/imagen_video.png);
+                background-position: center right;
+             }
+    }
+    
+    &__grid {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        @include m.tablet { 
+            grid-template-rows: unset;
+            @include m.grid(2, 5rem)
+         }
+    } 
+    
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 5rem;
+    }
+
+    &__subtitulo {
+        font-size: 1.4rem;
+        color: v.$verdeClaro;
+    }
+
+    &__titulo {
+        color: v.$blanco;
+    }   
+    
+    &__enlace {
+        @include m.boton(v.$secundario, v.$blanco);
+        
+    }
+
+}

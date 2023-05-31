@@ -1,0 +1,103 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contactos {
+background-color: v.$secundario;
+padding-top: 5rem;
+ 
+@include m.tablet { 
+    padding-top: 0;
+ }
+    &__grid {
+        @include m.tablet { 
+            @include m.grid(2, 5rem)
+         }
+    }
+}
+.contacto {
+    &__widget {
+        background-color: v.$blanco;
+        margin: 3rem 0;
+        border-radius: 2rem;
+        padding: 5rem;
+    }
+    
+    &__telefono {
+        color: v.$secundario;
+        font-size: 3rem;
+        display: block;
+        margin-bottom: 3rem;
+
+        &::before {
+            content: '';
+            background-color: v.$secundario;
+            background-image: url(../img/iconos/phone.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 1.5rem 3rem;
+            border-radius: 3rem;
+            margin-right: 1rem;
+        }
+    }
+    &__email {
+        color: v.$secundario;
+        font-size: 3rem;
+
+        &::after {
+            content: '';
+            background-color: v.$terciario;
+            background-image: url(../img/iconos/mail.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 1.5rem 3rem;
+            border-radius: 3rem;
+            margin-left: 1rem;
+        }
+    }
+    &__descripcion {
+        color: v.$blanco;
+        font-size: 3rem;
+        font-weight: 700;
+    }
+    &__texto {
+        color: v.$blanco;
+        font-size: 1.6rem;
+    }
+
+    &__contenido {
+        padding-bottom: 5rem;
+
+        @include m.tablet { 
+            padding: 5rem 0;
+         }
+    }
+
+    &__estadisticas {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 2rem;
+    }
+}
+.detalles {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    &__icono {
+        img {
+            width: 5rem; 
+        }
+    }
+    
+    &__numero {
+        margin: 0;
+        font-size: 3.5rem;
+        color: v.$blanco;
+    }
+    &__texto {
+        margin: 0;
+        font-size: 1.7rem;
+        color: v.$blanco;
+    }
+}

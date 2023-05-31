@@ -1,0 +1,123 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.header {
+    background-color: v.$blanco;
+}
+
+.top {
+    display: none;
+        @include m.tablet {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+     }
+
+     &__link {
+        color: v.$primario;
+     }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        @include m.tablet { 
+            flex-direction: row;
+            gap: 5rem;
+            }
+    }
+}
+
+.barra {
+    background-color: v.$secundario;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    justify-content: space-between;
+    
+    @include m.tablet { 
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 0;
+     }
+
+     &__accion {
+        height: 100%
+     }
+
+     &__accion--enlace {
+        @include m.boton(v.$primario, v.$blanco);
+     }
+}
+
+.navegacion {
+    display: none;
+    @include m.tablet { 
+        display: flex;
+        gap: 2rem;
+     }
+    
+    &__link {
+        color: v.$blanco;
+    }
+}
+
+.hero {
+
+    @include m.tablet { 
+        background-image: url(../img/imagen_hero.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+     }
+    
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 2rem;
+        padding: 5rem;
+            @include m.tablet { 
+                flex-direction: column;
+                justify-content: center;
+                padding: 20rem 0;
+                align-items: start;
+            }
+    }
+    &__subtitulo {
+        color: v.$secundario;
+        font-family: v.$fuenteSecundaria;
+    }
+    &__titulo {
+        color: v.$primario;
+        text-align: left;
+            @include m.tablet { 
+                max-width: 50%;
+                
+            }
+        
+    }
+    &__texto {
+        text-align: center;
+        font-size: 1.4rem;
+        font-family: v.$fuenteSecundaria;
+        margin: 0;
+            @include m.tablet { 
+                max-width: 50%;
+            }
+    }
+    &__enlace {
+        @include m.boton(v.$primario, v.$blanco);
+        width: 100%;
+        
+        @include m.tablet { 
+            @include m.boton(v.$primario, v.$blanco);
+            width: 20rem;
+            
+         } 
+    }
+}
